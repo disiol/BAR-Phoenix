@@ -88,9 +88,9 @@ public class WebFragment extends BaseBindingFragment<WebPresenter, FragmentWebBi
             builder.addDefaultShareMenuItem();
             builder.setCloseButtonIcon(backButton);
 
-//            if (!uri.startsWith("http://") && !uri.startsWith("https://")) {
-//                uri = "http://" + uri;
-//            }
+            if (!uri.startsWith("http://") && !uri.startsWith("https://")) {
+                uri = "http://" + uri;
+            }
 
             CustomTabsIntent customTabsIntent = builder.build();
 
