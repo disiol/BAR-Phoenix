@@ -56,26 +56,24 @@ public class RecorderFragment extends BaseBindingFragment<RecorderPresenter, Fra
         titelRecordEditText = getActivity().findViewById(R.id.record_title_textView);
         chronometer = getActivity().findViewById(R.id.time_record_chronometer);
 
-        mStartRecordingButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                try {
-                    mStartRecordingButton.setEnabled(false);
-                    mStopRecordingButton.setEnabled(true);
-                    mStopRecordingButton.requestFocus();
+        mStartRecordingButton.setOnClickListener(view1 -> {
+            try {
+                mStartRecordingButton.setEnabled(false);
+                mStopRecordingButton.setEnabled(true);
+                mStopRecordingButton.requestFocus();
 
-                    if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                            Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                        Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
-                        String[] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
-                        ActivityCompat.requestPermissions(getActivity(), permissions, 0);
-                    } else {
-                        recordStart();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e(TAG, "Caught io exception " + e.getMessage());
+                    String[] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+                    ActivityCompat.requestPermissions(getActivity(), permissions, 0);
+                } else {
+                    recordStart();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, "Caught io exception " + e.getMessage());
             }
         });
 
