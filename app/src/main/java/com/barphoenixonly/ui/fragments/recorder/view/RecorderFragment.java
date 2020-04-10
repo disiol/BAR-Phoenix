@@ -3,6 +3,7 @@ package com.barphoenixonly.ui.fragments.recorder.view;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.pm.PackageManager;
 
 import android.media.MediaPlayer;
@@ -58,9 +59,7 @@ public class RecorderFragment extends BaseBindingFragment<RecorderPresenter, Fra
 
         mStartRecordingButton.setOnClickListener(view1 -> {
             try {
-                mStartRecordingButton.setEnabled(false);
-                mStopRecordingButton.setEnabled(true);
-                mStopRecordingButton.requestFocus();
+
 
                 if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
                         Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
@@ -69,6 +68,10 @@ public class RecorderFragment extends BaseBindingFragment<RecorderPresenter, Fra
                     String[] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
                     ActivityCompat.requestPermissions(getActivity(), permissions, 0);
                 } else {
+                    mStartRecordingButton.setEnabled(false);
+                    mStopRecordingButton.setEnabled(true);
+                    mStopRecordingButton.requestFocus();
+
                     recordStart();
                 }
             } catch (Exception e) {
