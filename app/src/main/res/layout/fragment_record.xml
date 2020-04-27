@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="583dp" />
+            app:layout_constraintGuide_begin="538dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -51,22 +51,22 @@
 
             <ImageView
                 android:id="@+id/record_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="177dp"
+                android:layout_height="118dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:text="record"
-                app:srcCompat="@android:drawable/ic_notification_overlay" />
+                app:srcCompat="@drawable/record" />
 
 
             <ImageView
                 android:id="@+id/stop_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="241dp"
+                android:layout_height="110dp"
                 android:layout_weight="1"
-                app:srcCompat="@android:drawable/picture_frame"
                 android:clickable="false"
-                android:text="stop" />
+                android:text="stop"
+                app:srcCompat="@drawable/stop" />
         </LinearLayout>
 
         <Chronometer
